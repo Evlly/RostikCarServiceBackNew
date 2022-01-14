@@ -5,10 +5,14 @@ from api.v1.user.serializers import UserCompactSerializer
 
 class ServiceSerializer(serializers.ModelSerializer):
     type = serializers.SlugRelatedField('name', queryset=TypeService.objects.all())
+    popularity = serializers.SerializerMethodField()
 
     class Meta:
         model = Service
         fields = '__all__'
+
+    def get_popularity(self, instance):
+        return instance.order_set.count()
 
 
 class TypeServiceSerializer(serializers.ModelSerializer):
