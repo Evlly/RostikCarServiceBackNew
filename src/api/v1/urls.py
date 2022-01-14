@@ -5,6 +5,7 @@ from rest_framework import permissions, routers
 from api.v1.user.views import UserViewSet
 from api.v1.car_service.views import ServiceModelViewSet, TypeServiceModelViewSet, OrderModelViewSet, OrderStatusModelViewSet
 from api.v1.promocode.views import PromocodeModelViewSet
+from api.v1.module.views import ModuleModelViewSet, ConfigModelViewSet
 
 
 router = routers.DefaultRouter()
@@ -14,6 +15,8 @@ router.register('service_types', TypeServiceModelViewSet, basename='type_service
 router.register('order', OrderModelViewSet, basename='type_service')
 router.register('oder_status', OrderStatusModelViewSet, basename='type_service')
 router.register('promocode', PromocodeModelViewSet, basename='promocode')
+router.register('module', ModuleModelViewSet, basename='module')
+router.register('config', ConfigModelViewSet, basename='config')
 
 
 schema_view = get_schema_view(
