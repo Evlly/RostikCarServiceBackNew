@@ -4,6 +4,7 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions, routers
 from api.v1.user.views import UserViewSet
 from api.v1.car_service.views import ServiceModelViewSet, TypeServiceModelViewSet, OrderModelViewSet, OrderStatusModelViewSet
+from api.v1.promocode.views import PromocodeModelViewSet
 
 
 router = routers.DefaultRouter()
@@ -12,6 +13,7 @@ router.register('service', ServiceModelViewSet, basename='service')
 router.register('service_types', TypeServiceModelViewSet, basename='type_service')
 router.register('order', OrderModelViewSet, basename='type_service')
 router.register('oder_status', OrderStatusModelViewSet, basename='type_service')
+router.register('promocode', PromocodeModelViewSet, basename='promocode')
 
 
 schema_view = get_schema_view(

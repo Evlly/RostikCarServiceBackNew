@@ -6,7 +6,6 @@ from rest_framework.authtoken.models import Token
 from rest_framework.decorators import action
 from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.response import Response
-from api.v1 import user
 from helpers.serializers import ErrorResponseSerializer, EmptySerializer
 from helpers.viewsets import RUDExtendedModelViewSet
 
