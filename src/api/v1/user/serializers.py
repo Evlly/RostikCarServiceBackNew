@@ -10,13 +10,13 @@ from apps.user.models import User
 class UserCompactSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name')
+        fields = ('id', 'first_name', 'last_name', 'middle_name')
 
 
 class UserReadSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name', 'email', 'username')
+        fields = ('id', 'first_name', 'last_name', 'middle_name', 'role', 'car', 'phone', 'balance', 'email')
 
 
 class AuthUserSerializer(serializers.Serializer):

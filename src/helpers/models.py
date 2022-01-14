@@ -8,3 +8,7 @@ class UUIDModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+def enum_max_length(text_choices):
+    return max(len(value) for value in text_choices.values)

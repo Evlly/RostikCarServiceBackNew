@@ -1,8 +1,28 @@
 from django.contrib.auth.models import AbstractUser
 from django_lifecycle import LifecycleModelMixin
-from helpers.models import UUIDModel
+from helpers.models import UUIDModel, enum_max_length
+from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
+from django_lifecycle import LifecycleModelMixin, hook, BEFORE_UPDATE
+
+
+class UserRoles(models.TextChoices):
+    CLIENT = 'Клиент'
+    ADMINISTRATOR = 'Администратор'
+    MECHANIC = 'Механик'
 
 
 class User(LifecycleModelMixin, UUIDModel, AbstractUser):
-    class Meta(AbstractUser.Meta):
-        pass
+    role = models.CharField('Роль', max_length=enum_max_length(UserRoles), choices=UserRoles.choices)
+    middle_name = models.CharField('Отчество', max_length=32, default='', blank=True, null=True)
+    car = models.CharField('Машина', max_length=32, default='', blank=True, null=True)
+    phone = PhoneNumberField('Номер телефона', unique=True, help_text='Пример, +79510549236')
+    balance = models.DecimalField('Баланс', max_digits=6, decimal_places=2, default=0)
+    email = models.EmailField('Адрес электронной почты', default='')
+
+    @hook(BEFORE_UPDATE, when='role')
+    def _create_balance(self):
+        if self.role in (UserRoles.ADMINISTRATOR, UserRoles.MECHANIC):
+            self.is_staff = True
+        else:
+            self.is_staff = False
