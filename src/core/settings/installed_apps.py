@@ -16,6 +16,7 @@ INSTALLED_APPS = [
 
     'apps.user',
     'apps.car_service',
+    'apps.promocode',
 ]
 
 if settings.DEBUG:

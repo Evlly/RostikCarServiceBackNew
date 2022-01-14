@@ -10,5 +10,13 @@ class UUIDModel(models.Model):
         abstract = True
 
 
+class CreatedModel(models.Model):
+    created_at = models.DateTimeField(_('created at'), auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+
 def enum_max_length(text_choices):
     return max(len(value) for value in text_choices.values)
+

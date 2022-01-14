@@ -14,6 +14,8 @@ class UserCompactSerializer(serializers.ModelSerializer):
 
 
 class UserReadSerializer(serializers.ModelSerializer):
+    balance = serializers.FloatField(read_only=True)
+
     class Meta:
         model = User
         fields = ('id', 'first_name', 'last_name', 'middle_name', 'role', 'car', 'phone', 'balance', 'email')
