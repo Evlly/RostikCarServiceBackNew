@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'django_filters',
 
     'apps.user',
+    'apps.car_service',
 ]
 
 if settings.DEBUG:

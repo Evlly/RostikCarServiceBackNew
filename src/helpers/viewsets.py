@@ -76,3 +76,15 @@ class CRUExtendedModelViewSet(
     viewsets.GenericViewSet,
 ):
     pass
+
+class CRUDExtendedModelViewSet(
+    ExtendViewSet,
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet,
+):
+    pass
+

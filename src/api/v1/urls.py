@@ -3,10 +3,13 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions, routers
 from api.v1.user.views import UserViewSet
+from api.v1.car_service.views import ServiceModelViewSet, TypeServiceModelViewSet
 
 
 router = routers.DefaultRouter()
 router.register('user', UserViewSet, basename='user')
+router.register('service', ServiceModelViewSet, basename='service')
+router.register('service_types', TypeServiceModelViewSet, basename='type_service')
 
 
 schema_view = get_schema_view(
