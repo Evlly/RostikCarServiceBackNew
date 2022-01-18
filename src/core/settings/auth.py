@@ -4,3 +4,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 MIN_PASSWORD_LENGTH = 8
+
+
+AUTHENTICATION_BACKENDS = (
+    'apps.user.authenticate_backend.MultipleFieldsAuthBackend',
+)

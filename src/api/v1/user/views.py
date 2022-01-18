@@ -8,6 +8,7 @@ from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.response import Response
 from helpers.serializers import ErrorResponseSerializer, EmptySerializer
 from helpers.viewsets import RUDExtendedModelViewSet
+from rest_framework.exceptions import AuthenticationFailed
 
 from api.v1.user import serializers
 
@@ -62,6 +63,8 @@ class UserViewSet(RUDExtendedModelViewSet):
         serializer.is_valid(raise_exception=True)
 
         user = authenticate(request, **serializer.data)
+        if not user:
+            raise AuthenticationFailed()
         token, _ = Token.objects.get_or_create(user=user)
 
         return Response(serializers.UserTokenSerializer(token).data)
