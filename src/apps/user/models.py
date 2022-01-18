@@ -10,6 +10,7 @@ class UserRoles(models.TextChoices):
     CLIENT = 'Клиент'
     ADMINISTRATOR = 'Администратор'
     MECHANIC = 'Механик'
+    MANAGER = 'Менеджер'
 
 
 class User(LifecycleModelMixin, UUIDModel, AbstractUser):
