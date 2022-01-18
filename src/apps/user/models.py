@@ -19,3 +19,5 @@ class User(LifecycleModelMixin, UUIDModel, AbstractUser):
     phone = PhoneNumberField('Номер телефона', unique=True, help_text='Пример, +79510549236')
     balance = models.DecimalField('Баланс', max_digits=6, decimal_places=2, default=0)
     email = models.EmailField('Адрес электронной почты', default='')
+
+    REQUIRED_FIELDS = ['email', 'phone']

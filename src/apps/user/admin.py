@@ -8,4 +8,9 @@ User = get_user_model()
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
-    pass
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('username', 'phone', 'email', 'password1', 'password2'),
+        }),
+    )
