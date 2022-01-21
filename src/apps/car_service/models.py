@@ -34,5 +34,5 @@ class Order(LifecycleModelMixin, UUIDModel):
         price = sum([s.price for s in self.services.all()])
         if self.client.balance < price:
             raise ValidationError('Недостаточно средств')
-        self.client.balace -= price
+        self.client.balance -= price
         self.client.save()
