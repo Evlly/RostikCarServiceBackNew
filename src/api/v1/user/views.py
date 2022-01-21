@@ -17,7 +17,7 @@ User = get_user_model()
 
 class UserViewSet(RUDExtendedModelViewSet):
     queryset = User.objects.all()
-    serializer_class = serializers.UserWriteSerializer
+    serializer_class = serializers.UserReadSerializer
     serializer_class_map = {
         'list': serializers.UserCompactSerializer,
         'retrieve': serializers.UserReadSerializer,
@@ -26,6 +26,7 @@ class UserViewSet(RUDExtendedModelViewSet):
         'compact': serializers.UserCompactSerializer,
         'login': serializers.AuthUserSerializer,
         'refresh_token': EmptySerializer,
+        'registration': serializers.UserWriteSerializer,
     }
     permission_map = {
         'login': permissions.AllowAny,

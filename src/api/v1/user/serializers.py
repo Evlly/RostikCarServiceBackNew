@@ -18,7 +18,7 @@ class UserReadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name', 'middle_name', 'role', 'car', 'phone', 'balance', 'email')
+        fields = '__all__'
 
 
 class AuthUserSerializer(serializers.Serializer):
