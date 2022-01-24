@@ -9,6 +9,8 @@ from rest_framework.response import Response
 from helpers.serializers import ErrorResponseSerializer, EmptySerializer
 from helpers.viewsets import RUDExtendedModelViewSet
 from rest_framework.exceptions import AuthenticationFailed
+from api.v1.module.serializers import ConfigSerializer
+from apps.module.models import Config
 
 from api.v1.user import serializers
 
@@ -27,6 +29,7 @@ class UserViewSet(RUDExtendedModelViewSet):
         'login': serializers.AuthUserSerializer,
         'refresh_token': EmptySerializer,
         'registration': serializers.UserWriteSerializer,
+        'config': ConfigSerializer,
     }
     permission_map = {
         'login': permissions.AllowAny,
@@ -77,3 +80,12 @@ class UserViewSet(RUDExtendedModelViewSet):
         token = Token.objects.create(user=request.user)
 
         return Response(serializers.UserTokenSerializer(token).data)
+
+    @swagger_auto_schema(responses={200: ConfigSerializer})
+    @action(methods=['get'], detail=True)
+    def config(self, request, pk):
+        user = self.get_object()
+        queryset = Config.objects.filter(user=user)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
