@@ -14,4 +14,4 @@ class ConfigSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Config
-        fields = ('module', 'enable')
+        fields = ('id', 'module', 'enable')
