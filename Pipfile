@@ -18,6 +18,7 @@ django-filter = "*"
 django-heroku = "*"
 django-phonenumber-field = "*"
 phonenumbers = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 pytest-django = "*"
