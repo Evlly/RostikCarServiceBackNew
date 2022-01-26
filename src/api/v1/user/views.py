@@ -21,11 +21,11 @@ class UserViewSet(RUDExtendedModelViewSet):
     queryset = User.objects.all()
     serializer_class = serializers.UserReadSerializer
     serializer_class_map = {
-        'list': serializers.UserCompactSerializer,
+        'list': serializers.UserReadSerializer,
         'retrieve': serializers.UserReadSerializer,
         'me': serializers.UserReadSerializer,
         'change_password': serializers.UserChangePasswordSerializer,
-        'compact': serializers.UserCompactSerializer,
+        'compact': serializers.UserReadSerializer,
         'login': serializers.AuthUserSerializer,
         'refresh_token': EmptySerializer,
         'registration': serializers.UserWriteSerializer,
