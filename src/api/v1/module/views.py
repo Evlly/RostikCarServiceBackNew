@@ -12,7 +12,3 @@ class ConfigModelViewSet(CRUDExtendedModelViewSet):
     queryset = Config.objects.all()
     serializer_class = ConfigSerializer
 
-    def get_queryset(self):
-        if self.request.user.is_superuser:
-            return self.queryset
-        return self.queryset.filter(user=self.request.user)
