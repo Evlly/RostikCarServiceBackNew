@@ -24,7 +24,7 @@ class TypeServiceSerializer(serializers.ModelSerializer):
 class OrderReadSerializer(serializers.ModelSerializer):
     status = serializers.SlugRelatedField('name', queryset=OrderStatus.objects.all())
     staff = UserCompactSerializer(read_only=True)
-    client = UserCompactSerializer(read_only=True)
+    client = UserReadSerializer(read_only=True)
     services = ServiceSerializer(many=True, read_only=True)
 
     class Meta:
