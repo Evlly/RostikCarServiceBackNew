@@ -63,7 +63,7 @@ class UserWriteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'first_name', 'last_name', 'username', 'email')
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password', 'password2')
 
     def validate_password(self, password):
         validate_password(password)
