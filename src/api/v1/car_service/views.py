@@ -1,7 +1,7 @@
 from api.v1.user import serializers
 from helpers.viewsets import CRUDExtendedModelViewSet
-from apps.car_service.models import Service, TypeService, Order, OrderStatus
-from api.v1.car_service.serializers import ServiceSerializer, TypeServiceSerializer, OrderReadSerializer, OrderStatusSerializer, OrderWriteSerializer
+from apps.car_service.models import Service, TypeService, Order, OrderStatus, Detail
+from api.v1.car_service.serializers import ServiceSerializer, TypeServiceSerializer, OrderReadSerializer, OrderStatusSerializer, OrderWriteSerializer, DetailSerializer
 
 
 class ServiceModelViewSet(CRUDExtendedModelViewSet):
@@ -17,6 +17,11 @@ class TypeServiceModelViewSet(CRUDExtendedModelViewSet):
 class OrderStatusModelViewSet(CRUDExtendedModelViewSet):
     queryset = OrderStatus.objects.all()
     serializer_class = OrderStatusSerializer
+
+
+class DetailModelViewSet(CRUDExtendedModelViewSet):
+    queryset = Detail.objects.all()
+    serializer_class = DetailSerializer
 
 
 class OrderModelViewSet(CRUDExtendedModelViewSet):

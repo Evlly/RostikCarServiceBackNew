@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.car_service.models import Service, TypeService, Order, OrderStatus
+from apps.car_service.models import Service, TypeService, Order, OrderStatus, Detail
 from api.v1.user.serializers import UserCompactSerializer
 
 
@@ -43,4 +43,10 @@ class OrderWriteSerializer(serializers.ModelSerializer):
 class OrderStatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderStatus
+        fields = '__all__'
+
+
+class DetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Detail
         fields = '__all__'

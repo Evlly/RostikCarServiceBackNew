@@ -20,3 +20,8 @@ class OrderAdmin(admin.ModelAdmin):
 @admin.register(OrderStatus)
 class OrderStatusAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(Detail)
+class DetailAdmin(admin.ModelAdmin):
+    pass

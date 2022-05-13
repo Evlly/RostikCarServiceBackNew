@@ -3,7 +3,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions, routers
 from api.v1.user.views import UserViewSet
-from api.v1.car_service.views import ServiceModelViewSet, TypeServiceModelViewSet, OrderModelViewSet, OrderStatusModelViewSet
+from api.v1.car_service.views import ServiceModelViewSet, TypeServiceModelViewSet, OrderModelViewSet, OrderStatusModelViewSet, DetailModelViewSet
 from api.v1.promocode.views import PromocodeModelViewSet
 from api.v1.module.views import ModuleModelViewSet, ConfigModelViewSet
 
@@ -17,6 +17,7 @@ router.register('oder_status', OrderStatusModelViewSet, basename='type_service')
 router.register('promocode', PromocodeModelViewSet, basename='promocode')
 router.register('module', ModuleModelViewSet, basename='module')
 router.register('config', ConfigModelViewSet, basename='config')
+router.register('detail', DetailModelViewSet, basename='detail')
 
 
 schema_view = get_schema_view(
