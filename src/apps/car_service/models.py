@@ -7,7 +7,7 @@ from rest_framework.exceptions import ValidationError
 
 
 class Detail(LifecycleModelMixin, UUIDModel):
-    name = models.CharField('Название', max_length=32, unique=False)
+    name = models.CharField('Название', max_length=32, unique=False )
     price = models.DecimalField('Стоимость', max_digits=6, decimal_places=2, default=0)
     car = models.CharField('Автомобиль', max_length=32, unique=False)
     count = models.PositiveSmallIntegerField('Максимум активаций', default=0)
