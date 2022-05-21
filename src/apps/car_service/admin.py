@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.car_service.models import TypeService, Service, Order, OrderStatus
+from apps.car_service.models import TypeService, Service, Order, OrderStatus, Detail
 
 
 @admin.register(Service)
